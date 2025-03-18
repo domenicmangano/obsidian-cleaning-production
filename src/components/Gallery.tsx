@@ -6,7 +6,7 @@ const Gallery = () => {
                 <p className={"tw-w-3/4 tw-py-3"}> Below is a gallery of our work.</p>
             </div>
             <div className={"tw-grid tw-grid-cols-3"}>
-                <p> Coming Soon! </p>
+                <p> Coming Soon!</p>
             </div>
         </div>
     )
