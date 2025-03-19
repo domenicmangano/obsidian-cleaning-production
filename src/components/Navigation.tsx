@@ -10,8 +10,6 @@ const Navigation = () => {
         setMenuOpen(!menuOpen);
     };
 
-    // const navigate = useNavigate();
-
     return (
         <Navbar
             className={"tw-w-full tw-z-1 tw-flex tw-flex-col tw-items-center tw-bg-primary-dark-blue tw-shadow-lg tw-relative"}>

@@ -1,9 +1,4 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
     "types": ["vite/client"],
     "target": "ES2020",
@@ -26,11 +21,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    //absolute import
+    // absolute import
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"],
       "react": ["node_modules/@types/react"]
-    }
-  },
+    },
+
+    // Ensure correct default import handling
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
 }

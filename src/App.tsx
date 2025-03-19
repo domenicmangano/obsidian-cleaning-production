@@ -1,14 +1,11 @@
 import './assets/stylesheets/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navigation from './components/Navigation.tsx';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Ensure you use react-router-dom
-import LandingPage from './components/LandingPage.tsx';
-import Estimates from './components/Estimates.tsx';
-import About from './components/About.tsx';
-import Services from './components/Services.tsx';
+import { Route, Routes } from 'react-router-dom'; // Ensure you use react-router-dom
+import React, {Suspense, lazy, useEffect} from 'react';
 import Footer from './components/Footer.tsx';
-import { useEffect } from 'react';
-import Gallery from "./components/Gallery.tsx";
+import {FaSpinner} from "react-icons/fa";
+
 
 function App() {
     useEffect(() => {
@@ -20,22 +17,25 @@ function App() {
         }
     }, []);
 
+    const LandingPage = lazy(() => import('./components/LandingPage.tsx') as Promise<{ default: React.ComponentType }>);
+    const Services = lazy(() => import('./components/Services.tsx') as Promise<{ default: React.ComponentType }>);
+    const About = lazy(() => import('./components/About.tsx') as Promise<{ default: React.ComponentType }>);
+    const Estimates = lazy(() => import('./components/Estimates.tsx') as Promise<{ default: React.ComponentType }>);
+    const Gallery = lazy(() => import('./components/Gallery.tsx') as Promise<{ default: React.ComponentType }>);
+
     return (
         <div className="tw-w-lvw tw-h-lvh tw-align-middle tw-justify-start tw-overflow-y-scroll tw-flex tw-flex-col">
             <Navigation />
-            <div
-                id="fade-in"
-                className="tw-flex tw-flex-col tw-w-full tw-opacity-0 tw-transition-opacity tw-duration-500 tw-ease-in xs:tw-min-h-[40rem] md:tw-h-full xs:tw-overflow-y-scroll md:tw-overflow-hidden"
-            >
-                <Router>
+            <div id="fade-in" className="tw-flex tw-flex-col tw-w-full tw-opacity-0 tw-transition-opacity tw-duration-500 tw-ease-in xs:tw-min-h-[40rem] md:tw-h-full xs:tw-overflow-y-scroll md:tw-overflow-hidden">
+                <Suspense fallback={<FaSpinner className={"tw-text-primary-black"}/>}>
                     <Routes>
                         <Route path="/" element={<LandingPage />} />
                         <Route path="/Services" element={<Services />} />
                         <Route path="/About" element={<About />} />
                         <Route path="/Estimates" element={<Estimates />} />
-                        <Route path={"/Gallery"} element={<Gallery />} />
+                        <Route path="/Gallery" element={<Gallery />} />
                     </Routes>
-                </Router>
+                </Suspense>
             </div>
             <Footer />
         </div>
