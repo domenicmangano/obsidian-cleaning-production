@@ -3,12 +3,15 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { FaPhone } from "react-icons/fa";
 import {Collapse, Nav, Navbar, NavbarToggler} from "reactstrap";
 import {useState} from "react";
+import {useNavigate} from "react-router";
 
 const Navigation = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleNav = () => {
         setMenuOpen(!menuOpen);
     };
+
+    const navigate = useNavigate();
 
     return (
         <Navbar
@@ -45,19 +48,23 @@ const Navigation = () => {
                         />
                         <Collapse isOpen={menuOpen} className={"tw-absolute tw-z-10 tw-bg-primary-white tw-border tw-border-primary-gray tw-shadow-lg tw-p-3 tw-pl-6 tw-rounded-lg tw-right-2 tw-mt-10"} navbar>
                             <Nav navbar className={"ms-auto tw-flex tw-flex-col tw-items-end tw-gap-y-2"}>
-                                <a href={"/"}
+                                <a href={"#"}
+                                   onClick={() => navigate("/")}
                                    className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-md tw-text-primary-dark-blue tw-font-medium tw-no-underline"}>
                                     Home
                                 </a>
-                                <a href={"/Services"}
+                                <a href={"#"}
+                                   onClick={() => navigate("/Services")}
                                    className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-md tw-text-primary-dark-blue tw-font-medium  tw-no-underline"}>
                                     Services
                                 </a>
-                                <a href={"/Estimates"}
+                                <a href={"#"}
+                                   onClick={() => navigate("/Estimates")}
                                    className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-md tw-text-primary-dark-blue tw-font-medium  tw-no-underline"}>
                                     Get an Estimate
                                 </a>
-                                <a href={"/About"}
+                                <a href={"#"}
+                                   onClick={() => navigate("/About")}
                                    className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-md tw-text-primary-dark-blue tw-font-medium  tw-no-underline"}>
                                     About
                                 </a>
@@ -69,23 +76,28 @@ const Navigation = () => {
             <div className={"tw-bg-primary-dark-blue tw-w-full xs:tw-hidden md:tw-flex tw-justify-center"}>
                 <div
                     className={"tw-flex tw-font-poppins tw-font-semibold tw-w-full tw-px-6 tw-gap-x-3 tw-items-center tw-text-xs tw-justify-between tw-p-2 tw-h-[2rem]"}>
-                    <a href={"/"}
+                    <a href={"#"}
+                       onClick={() => navigate("/")}
                        className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-[.75rem] tw-text-primary-white tw-no-underline"}>
                         Home
                     </a>
-                    <a href={"/Services"}
+                    <a href={"#"}
+                       onClick={() => navigate("/Services")}
                        className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-[.75rem] tw-text-primary-white tw-no-underline"}>
                         Services
                     </a>
-                    <a href={"/Estimates"}
+                    <a href={"#"}
+                       onClick={() => navigate("/Estimates")}
                        className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-[.75rem] tw-text-primary-white tw-no-underline"}>
                         Get an Estimate
                     </a>
-                    <a href={"/About"}
+                    <a href={"#"}
+                       onClick={() => navigate("/About")}
                        className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-[.75rem] tw-text-primary-white tw-no-underline"}>
                         About
                     </a>
-                    <a href={"/Gallery"}
+                    <a href={"#"}
+                       onClick={() => navigate("/Gallery")}
                        className={"hover:tw-border-b-2 hover:tw-border-b-primary-orange tw-text-[.75rem] tw-text-primary-white tw-no-underline"}>
                         Gallery
                     </a>
