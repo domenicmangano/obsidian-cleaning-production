@@ -8,7 +8,6 @@ import ObsidianButton from "./ObsidianButton.tsx";
 
 const LandingPage = () => {
     const navigate = useNavigate();
-
     return (
         <>
         <div className={"tw-flex tw-flex-col tw-justify-between tw-h-full"}>

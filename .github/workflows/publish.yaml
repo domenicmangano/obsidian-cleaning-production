@@ -22,7 +22,7 @@ jobs:
 
       - name: Build
         run: npm run build
-        with:
+        env:
           VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
           VITE_SUPABASE_PROJECT: ${{ secrets.VITE_SUPABASE_PROJECT }}
 
@@ -33,5 +33,9 @@ jobs:
           BRANCH: prod
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
+          VITE_SUPABASE_PROJECT: ${{ secrets.VITE_SUPABASE_PROJECT }}
         with:
           message: "Build: ${{ github.sha }}"
+          VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
+          VITE_SUPABASE_PROJECT: ${{ secrets.VITE_SUPABASE_PROJECT }}
