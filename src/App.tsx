@@ -26,7 +26,7 @@ function App() {
     return (
         <div className="tw-w-lvw tw-h-lvh tw-align-middle tw-justify-start tw-overflow-y-scroll tw-flex tw-flex-col">
             <Navigation />
-            <div id="fade-in" className="tw-flex tw-flex-col tw-w-full tw-opacity-0 tw-transition-opacity tw-duration-500 tw-ease-in xs:tw-min-h-[40rem] md:tw-h-full xs:tw-overflow-y-scroll md:tw-overflow-hidden">
+            <div id="fade-in" className="tw-flex tw-flex-col tw-w-full tw-opacity-0 tw-transition-opacity tw-duration-500 tw-ease-in xs:tw-min-h-[30rem] lg:tw-min-h-[40rem] xl:tw-min-h-[45rem] xxl:tw-min-h-[50rem] tw-relative">
                 <Suspense fallback={<FaSpinner className={"tw-text-primary-black"}/>}>
                     <Routes>
                         <Route path="/" element={<LandingPage />} />

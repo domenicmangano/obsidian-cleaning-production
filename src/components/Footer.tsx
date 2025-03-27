@@ -3,8 +3,11 @@ import { FaPhone } from "react-icons/fa";
 import { FaMailBulk} from "react-icons/fa";
 import { FaPerson} from "react-icons/fa6";
 import ObsidianButton from "./ObsidianButton.tsx";
+import {useNavigate} from "react-router";
 
 const Footer = () => {
+    const navigate = useNavigate();
+
     return (
         <div className={"xs:tw-mt-0 md:tw-mt-10 tw-bg-primary-dark-blue tw-text-primary-white tw-w-full tw-p-6"}>
             <div className={"tw-grid tw-grid-cols-3 tw-gap-x-4"}>
@@ -16,7 +19,7 @@ const Footer = () => {
                     <div>
                         <p className={"tw-leading-tight"}>Obsidian is a local, family-owned company since 2020. Click below to learn more!</p>
                     </div>
-                    <ObsidianButton onClick={() => (window.location.href = "About")}>
+                    <ObsidianButton onClick={() => (navigate("/About"))}>
                         About Us
                     </ObsidianButton>
                 </div>

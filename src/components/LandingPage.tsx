@@ -10,7 +10,7 @@ const LandingPage = () => {
     const navigate = useNavigate();
     return (
         <>
-        <div className={"tw-flex tw-flex-col tw-justify-between tw-h-full"}>
+        <div className={"tw-flex tw-flex-col tw-h-full"}>
             <div className={"tw-relative"}>
                 <img src={Stock} className={"tw-w-full tw-brightness-75"}/>
                 <div className={"tw-absolute tw-left-10 xs:tw-top-7 md:tw-top-20 tw-font-poppins"}>
