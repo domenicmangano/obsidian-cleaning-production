@@ -11,6 +11,7 @@ import {
     COMPANY_REQUIRED, DISINFECTING, SHIPPING,
     FLOORS, JANITORIAL, SUBMIT_ESTIMATE, SUCCESSFUL_SUBMISSION
 } from "../constants/Strings.ts";
+import { throttle } from "lodash";
 
 const Estimates = () => {
 
@@ -25,6 +26,7 @@ const Estimates = () => {
     const [displaySuccess, setDisplaySuccess] = useState<boolean>(false);
     const [emailError, setEmailError] = useState<string>("");
     const [phoneError, setPhoneError] = useState<string>("");
+    const [lastSubmitted, setLastSubmitted] = useState<number>(0);
 
     const handleInputChange = (setter: any, index: number, validator: any) => (e: any) => {
         const value = useSanitizeInput(e.target.value.trim());
@@ -110,6 +112,22 @@ const Estimates = () => {
             }
         }
     };
+
+    // Throttle API submissions to only 30 seconds between submissions
+    const throttledSubmit = throttle((e) => {
+        handleSubmit(e);
+        setLastSubmitted(Date.now());
+    }, 30000, {trailing: false});
+
+    const onSubmit =(e: any) => {
+        const now = Date.now();
+        if (now - lastSubmitted < 30000) {
+            alert("Please wait 30 seconds before submitting another request.");
+            return;
+        } else {
+            throttledSubmit(e);
+        }
+    }
 
     const resetForm = () => {
         setEmail("");
@@ -265,7 +283,7 @@ const Estimates = () => {
                         />
                     </Label>
                     <ObsidianButton
-                        onClick={(e: any) => handleSubmit(e)}
+                        onClick={(e: any) => onSubmit(e)}
                         type={"submit"}
                     >
                         {SUBMIT_ESTIMATE}
@@ -276,7 +294,7 @@ const Estimates = () => {
                 <div className={"tw-fixed tw-top-1/4 tw-left-[33%] tw-bg-[#fff] tw-p-6 tw-border tw-border-primary-gray tw-rounded-lg"}>
                     <SuccessCheck/>
                     <p className={"tw-text-success tw-font-poppins tw-font-semibold"}>Estimate successfully submitted!</p>
-                    <div className={"tw-w-full tw-flex tw-justify-center"}>
+                    <div className={"tw-w-full tw-flex tw-justify-center tw-items-center"}>
                         <ObsidianButton onClick={() => setDisplaySuccess(false)}> Close </ObsidianButton>
                     </div>
                 </div>
