@@ -14,7 +14,7 @@ const ObsidianButton = (props: {
     } = props;
 
     return (
-        <button onClick={onClick} type={type} className={`tw-rounded-full tw-flex tw-justify-center tw-w-1/2 tw-shadow-lg tw-bg-primary-orange hover:tw-bg-[#D35A04FF] tw-px-3 tw-py-1 tw-text-primary-white tw-text-xs ${style}`}>
+        <button onClick={onClick} type={type} className={`tw-rounded-full tw-flex tw-justify-center tw-w-full tw-shadow-lg tw-bg-primary-orange hover:tw-bg-[#D35A04FF] tw-px-3 tw-py-1 tw-text-primary-white tw-text-sm ${style}`}>
             {children}
         </button>
     );
