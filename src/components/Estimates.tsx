@@ -130,7 +130,7 @@ const Estimates = () => {
     };
 
     return (
-        <div className={"tw-p-6 tw-relative"}>
+        <div className={"tw-p-6 tw-relative xs:tw-overflow-y-scroll md:tw-overflow-hidden"}>
             <div className={"tw-text-primary-black"}>
                 <h2 className={"tw-font-poppins tw-font-bold tw-text-lg"}> Request an Estimate </h2>
                 <p className={"tw-w-3/4 tw-py-3"}> Fill out the form below to request a free estimate, including your name, email, the services you are looking for, and an optional description/message. </p>
