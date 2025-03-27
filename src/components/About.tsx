@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div className={"tw-p-6"}>
+        <div className={"tw-p-6 tw-overflow-y-scroll"}>
             <h2 className={"tw-font-bold tw-font-poppins tw-text-lg"}> About Us </h2>
             <div className={"tw-mt-6"}>
                 <h3 className={"tw-font-bold tw-font-poppins tw-text-md"}>Who Are We</h3>

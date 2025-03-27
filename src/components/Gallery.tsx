@@ -1,6 +1,6 @@
 const Gallery = () => {
     return (
-        <div className={"tw-p-6 tw-relative"}>
+        <div className={"tw-p-6 tw-relative tw-overflow-y-scroll"}>
             <div>
                 <h2 className={"tw-font-poppins tw-font-bold tw-text-lg"}> Gallery </h2>
                 <p className={"tw-w-3/4 tw-py-3"}> Below is a gallery of our work.</p>

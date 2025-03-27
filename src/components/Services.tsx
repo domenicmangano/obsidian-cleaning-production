@@ -3,7 +3,7 @@ import services from "../constants/services.ts";
 
 const Services = () => {
     return (
-        <div className={"tw-p-6"}>
+        <div className={"tw-p-6 tw-overflow-y-scroll"}>
             <h2 className={"tw-font-bold tw-font-poppins tw-text-lg"}> Services </h2>
             <div>
                 <p>
